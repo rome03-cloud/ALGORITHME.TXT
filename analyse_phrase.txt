@@ -1,0 +1,38 @@
+ALGORITHME Analyse_Phrase
+
+// Définition des variables avec les 3 compteurs demandés
+VARIABLES
+    c : CARACTERE
+    nb_caracteres : ENTIER <- 0
+    nb_mots : ENTIER <- 0
+    nb_voyelles : ENTIER <- 0
+
+DEBUT
+    ECRIRE("Entrez une phrase caractère par caractère, se terminant par un point :")
+
+    // On utilise une boucle REPETER pour traiter chaque caractère jusqu'au point
+    REPETER
+        LIRE(c) 
+        
+        // 1. Compter chaque caractère
+        nb_caracteres <- nb_caracteres + 1
+
+        // 2. Compter les voyelles (Majuscules et Minuscules)
+        SI (c = 'a' OU c = 'e' OU c = 'i' OU c = 'o' OU c = 'u' OU c = 'y' OU
+            c = 'A' OU c = 'E' OU c = 'I' OU c = 'O' OU c = 'U' OU c = 'Y') ALORS
+            nb_voyelles <- nb_voyelles + 1
+        FIN SI
+
+        // 3. Compter les mots (un mot est suivi d'un espace ou du point final)
+        SI (c = ' ' OU c = '.') ALORS
+            nb_mots <- nb_mots + 1
+        FIN SI
+
+    JUSQU'A CE QUE (c = '.') 
+
+    // Affichage des trois compteurs demandés dans l'exercice
+    ECRIRE("Nombre de caractères : ", nb_caracteres)
+    ECRIRE("Nombre de mots : ", nb_mots)
+    ECRIRE("Nombre de voyelles : ", nb_voyelles)
+
+FIN
